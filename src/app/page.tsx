@@ -123,7 +123,7 @@ export default function Home() {
           <span className="drop-shadow">Baixar Blackhole agora</span>
         </a>
         <p className="text-gray-300 mt-4 animate-fade-in-up delay-200">
-          Disponível para Windows, macOS e Linux
+          Disponível para Windows 10 e 11
         </p>
       </section>
 

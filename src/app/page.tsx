@@ -111,7 +111,7 @@ export default function Home() {
           Pronto para compartilhar?
         </h2>
         <a
-          href="https://github.com/justAlves/blackhole"
+          href="https://github.com/justAlves/blackhole/releases"
           className="relative inline-block px-12 py-5 rounded-full text-lg font-bold shadow-xl transition-all duration-200
             bg-gradient-to-r from-violet-500 via-fuchsia-500 to-violet-700
             hover:from-violet-600 hover:via-fuchsia-600 hover:to-violet-800

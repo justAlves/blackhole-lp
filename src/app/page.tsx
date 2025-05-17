@@ -2,102 +2,135 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main className="relative min-h-screen text-white flex flex-col overflow-hidden">
+      {/* Grid animado de fundo */}
+      <div
+        aria-hidden
+        className="pointer-events-none fixed -z-10 w-screen h-screen"
+      >
+        <svg
+          className="w-full h-full"
+          style={{ opacity: 0.15 }}
+          width="100%"
+          height="100%"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+        >
+          <defs>
+            <pattern
+              id="grid"
+              width="24"
+              height="24"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M 24 0 L 0 0 0 24"
+                fill="none"
+                stroke="#a78bfa"
+                strokeWidth="1.5"
+              />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid)" />
+        </svg>
+      </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Hero Section */}
+      <section className="flex flex-col items-center justify-center flex-1 px-6 py-24">
+        <h1 className="text-5xl md:text-7xl font-bold text-center mb-6 bg-gradient-to-r from-violet-300 via-white to-violet-500 bg-clip-text text-transparent animate-gradient-x drop-shadow-[0_2px_8px_rgba(124,58,237,0.3)]">
+          Compartilhe arquivos <span className="text-white drop-shadow-lg">com segurança</span> e rapidez
+        </h1>
+        <p className="text-xl md:text-2xl text-gray-200 text-center max-w-2xl mb-8 animate-fade-in-up delay-100">
+          Blackhole é o jeito mais simples de enviar arquivos grandes. Faça upload, gere um link temporário e compartilhe com quem quiser.
+        </p>
+        <a
+          href="#download"
+          className="bg-violet-500 hover:bg-violet-600 transition px-8 py-4 rounded-full text-lg font-semibold shadow-lg animate-fade-in-up delay-200"
+        >
+          Baixar agora
+        </a>
+        <div className="mt-16 animate-fade-in-up delay-300">
+          <Image
+            src="/mockup.png"
+            alt="Mockup do Blackhole"
+            width={700}
+            height={400}
+            className="rounded-xl shadow-2xl border border-gray-800"
+            priority
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
+      </section>
+
+      {/* Benefícios */}
+      <section className="py-20">
+        <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-12 px-6">
+          <div className="animate-fade-in-up delay-100">
+            <h2 className="text-2xl font-bold mb-3">Privacidade total</h2>
+            <p className="text-gray-300">
+              Seus arquivos são criptografados e os links expiram automaticamente. Só quem tem o link pode acessar.
+            </p>
+          </div>
+          <div className="animate-fade-in-up delay-200">
+            <h2 className="text-2xl font-bold mb-3">Arquivos pesados</h2>
+            <p className="text-gray-300">
+              Envie arquivos de até 200mb. Sem cadastros.
+            </p>
+          </div>
+          <div className="animate-fade-in-up delay-300">
+            <h2 className="text-2xl font-bold mb-3">Open Source</h2>
+            <p className="text-gray-300">
+              Transparência e confiança. O código do Blackhole é aberto e auditável por todos.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Como funciona */}
+      <section className="py-20">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center mb-12 animate-fade-in-up">
+            Como funciona?
+          </h2>
+          <ol className="space-y-8 text-lg text-gray-200">
+            <li className="animate-fade-in-up delay-100">
+              <span className="font-semibold text-violet-400">1.</span> Faça upload do seu arquivo no app Blackhole.
+            </li>
+            <li className="animate-fade-in-up delay-200">
+              <span className="font-semibold text-violet-400">2.</span> Receba um link temporário e seguro.
+            </li>
+            <li className="animate-fade-in-up delay-300">
+              <span className="font-semibold text-violet-400">3.</span> Compartilhe o link com quem quiser. O arquivo será deletado após o 7 dias.
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      {/* CTA Final */}
+      <section id="download" className="py-20 flex flex-col items-center">
+        <h2 className="text-4xl font-bold mb-6 animate-fade-in-up">
+          Pronto para compartilhar?
+        </h2>
         <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="https://github.com/justAlves/blackhole"
+          className="relative inline-block px-12 py-5 rounded-full text-lg font-bold shadow-xl transition-all duration-200
+            bg-gradient-to-r from-violet-500 via-fuchsia-500 to-violet-700
+            hover:from-violet-600 hover:via-fuchsia-600 hover:to-violet-800
+            text-white animate-gradient-x focus:outline-none focus:ring-4 focus:ring-violet-400/50"
+          style={{
+            boxShadow: "0 8px 32px 0 rgba(124,58,237,0.25), 0 1.5px 8px 0 rgba(124,58,237,0.15)"
+          }}
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
+          <span className="drop-shadow">Baixar Blackhole agora</span>
         </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+        <p className="text-gray-300 mt-4 animate-fade-in-up delay-200">
+          Disponível para Windows, macOS e Linux
+        </p>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-8 text-center text-gray-500 text-sm">
+        © {new Date().getFullYear()} Blackhole. Feito com ♥ por Guilherme Alves Profirio.
       </footer>
-    </div>
+    </main>
   );
 }
